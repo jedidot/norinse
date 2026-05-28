@@ -1,26 +1,171 @@
 @import "tailwindcss";
+@import "pretendard/dist/web/variable/pretendardvariable.css";
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #3c3950;
+  --brand-blue: #00629b;
+  --brand-gray: #939598;
+  --brand-lavender: #cbd1ee;
+  --brand-sky: #aaddef;
+  --brand-purple: #8093dc;
+  --brand-pink: #df3faf;
+  --brand-green: #a2d45e;
+  --brand-cyan: #00c1de;
+  --brand-orange: #ff9e18;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-gray: var(--brand-gray);
+  --color-brand-lavender: var(--brand-lavender);
+  --color-brand-sky: var(--brand-sky);
+  --color-brand-purple: var(--brand-purple);
+  --color-brand-pink: var(--brand-pink);
+  --color-brand-green: var(--brand-green);
+  --color-brand-cyan: var(--brand-cyan);
+  --color-brand-orange: var(--brand-orange);
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+    system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.wide-letters {
+  letter-spacing: 0.2em;
+  font-size: 0.875rem;
+}
+
+/* Hero speech bubble quotes */
+.home-bubble h2::before {
+  content: "\201C";
+  display: inline;
+  position: relative;
+  font-size: clamp(2rem, 5vw, 4rem);
+  top: 1.5rem;
+  line-height: 0;
+  font-weight: 400;
+  color: #fff;
+}
+
+.home-bubble h2::after {
+  content: "\201D";
+  display: inline;
+  font-size: clamp(2rem, 5vw, 4rem);
+  position: relative;
+  top: 1.25rem;
+  line-height: 0;
+  font-weight: 400;
+  color: #fff;
+}
+
+/* Testimonial quote marks */
+.quote-mark::before {
+  content: "\201C";
+  display: inline;
+  position: relative;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  top: 1rem;
+  line-height: 0;
+  left: -1rem;
+}
+
+.quote-mark::after {
+  content: "\201D";
+  display: inline;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  position: relative;
+  top: 0.35rem;
+  line-height: 0;
+}
+
+.quote-blue::before,
+.quote-blue::after {
+  color: var(--brand-cyan);
+}
+
+.quote-purple::before,
+.quote-purple::after {
+  color: var(--brand-pink);
+}
+
+.quote-orange::before,
+.quote-orange::after {
+  color: var(--brand-orange);
+}
+
+.quote-green::before,
+.quote-green::after {
+  color: var(--brand-green);
+}
+
+/* WTB card divider */
+.wtb-divider {
+  margin: 1rem auto;
+  border-top: 6px solid white;
+  width: 33%;
+}
+
+/* Anchor scroll offset for fixed header */
+[id] {
+  scroll-margin-top: 85px;
+}
+
+/* Product pages */
+.product-page-header {
+  overflow: visible;
+}
+
+.sku-list li {
+  list-style: none;
+}
+
+.sku-list li .dots {
+  border-bottom: dotted 4px var(--brand-blue);
+  position: relative;
+  top: -5px;
+  margin-left: 2%;
+  margin-right: 2%;
+  flex: 1;
+}
+
+.product-bullets {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.product-bullets li {
+  position: relative;
+  font-size: 1rem;
+  line-height: 1.65;
+  margin-bottom: 0.625rem;
+  font-weight: 400;
+  color: var(--brand-blue);
+}
+
+.product-bullets li::before {
+  content: "";
+  position: absolute;
+  left: -0.875rem;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--bullet-color, var(--brand-blue));
 }
