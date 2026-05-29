@@ -1,8 +1,10 @@
+import { WatchVideoButton } from "@/components/products/WatchVideoButton";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { images } from "@/lib/images";
 import { getDictionary } from "@/lib/i18n";
+import { productPages } from "@/lib/product-pages/data";
 import { typo } from "@/lib/typography";
 import { cn } from "@/lib/utils";
 
@@ -14,18 +16,21 @@ const showcases = [
     href: "/hair-care/",
     bg: images.products.hairShowcase,
     imageLeft: true,
+    videoId: productPages.hair.videoId,
   },
   {
     ...dict.home.showcase.body,
     href: "/body-care/",
     bg: images.products.bodyShowcase,
     imageLeft: false,
+    videoId: productPages.body.videoId,
   },
   {
     ...dict.home.showcase.hand,
     href: "/hand-care/",
     bg: images.products.handShowcase,
     imageLeft: true,
+    videoId: productPages.hand.videoId,
   },
 ];
 
@@ -66,13 +71,17 @@ export function ProductShowcase() {
                 <p className={cn(typo.bodyBlue, "mb-5")}>
                   {item.description}
                 </p>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap items-center gap-3">
                   <Button href={item.href} color={item.color}>
                     {dict.common.moreInfo}
                   </Button>
-                  <Button href="#" variant="ghost" color={item.color}>
-                    {dict.common.watchVideo} ▶
-                  </Button>
+                  <WatchVideoButton
+                    compact
+                    variant="ghost"
+                    color={item.color}
+                    videoId={item.videoId}
+                    label={dict.common.watchVideo}
+                  />
                 </div>
               </div>
             </div>

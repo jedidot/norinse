@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 
 type YtPlayer = {
   destroy: () => void;
@@ -66,12 +67,29 @@ function applyKoreanCaptions(player: YtPlayer) {
   }
 }
 
+/** 원본: `<i class="gem-print-icon gem-icon-pack-elegant ">&#x49;</i>` */
+function WatchVideoPlayIcon() {
+  return (
+    <i className="gem-print-icon gem-icon-pack-elegant" aria-hidden>
+      {"\u0049"}
+    </i>
+  );
+}
+
 export function WatchVideoButton({
   color,
   videoId,
+  label = "영상 보기",
+  variant = "filled",
+  compact = false,
 }: {
   color: string;
   videoId: string;
+  label?: string;
+  /** filled: 제품 페이지(배경색+흰 글자), ghost: 홈 쇼케이스(흰 배경+컬러 글자) */
+  variant?: "filled" | "ghost";
+  /** 홈 쇼케이스 등 버튼 나란히 배치 시 */
+  compact?: boolean;
 }) {
   const [open, setOpen] = useState(false);
   const playerRef = useRef<YtPlayer | null>(null);
@@ -117,18 +135,31 @@ export function WatchVideoButton({
     };
   }, [open, videoId, playerElementId]);
 
+  const isGhost = variant === "ghost";
+
+  const trigger = (
+    <button
+      type="button"
+      className={cn(
+        "watch-video-btn watch-video-btn--icon-right inline-flex h-[30px] cursor-pointer items-center px-[30px] text-base font-normal leading-[30px] transition-colors",
+        isGhost && "watch-video-btn--ghost border-transparent bg-white",
+        !isGhost && "text-white",
+      )}
+      style={
+        isGhost
+          ? { color, backgroundColor: "#ffffff" }
+          : { backgroundColor: color, color: "#ffffff" }
+      }
+      onClick={() => setOpen(true)}
+    >
+      {label}
+      <WatchVideoPlayIcon />
+    </button>
+  );
+
   return (
     <>
-      <div className="my-6 text-center">
-        <button
-          type="button"
-          className="inline-flex h-[30px] cursor-pointer items-center gap-2 px-[30px] text-base text-white"
-          style={{ backgroundColor: color }}
-          onClick={() => setOpen(true)}
-        >
-          영상 보기 ▶
-        </button>
-      </div>
+      {compact ? trigger : <div className="my-6 text-center">{trigger}</div>}
       {open && (
         <div
           className="fixed inset-0 z-[100] flex cursor-default items-center justify-center bg-black/70 p-4"

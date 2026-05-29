@@ -246,6 +246,43 @@ body {
   scroll-margin-top: 85px;
 }
 
+/* 영상 보기 — thegem .gem-print-icon / .gem-icon-pack-elegant (원본 마크업) */
+@font-face {
+  font-family: "ElegantIcons";
+  src: url("/fonts/elegant/ElegantIcons.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.watch-video-btn .gem-print-icon {
+  display: inline-block;
+  font-feature-settings: normal;
+  font-kerning: auto;
+  font-size: inherit;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-rendering: auto;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.watch-video-btn .gem-print-icon.gem-icon-pack-elegant {
+  font-family: "ElegantIcons", sans-serif;
+  font-size: 16px;
+}
+
+.watch-video-btn i.gem-print-icon {
+  line-height: inherit;
+  vertical-align: top;
+  height: 100%;
+}
+
+.watch-video-btn.watch-video-btn--icon-right i.gem-print-icon {
+  margin-left: 6px;
+}
+
 /* Product pages */
 .product-page-header {
   overflow: visible;
