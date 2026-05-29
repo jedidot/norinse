@@ -26,7 +26,6 @@ const ko: Dictionary = {
         { label: "지역별 매장", href: "/where-to-buy/#by-location" },
         { label: "온라인/전화", href: "/where-to-buy/#retailers" },
         { label: "도매", href: "/where-to-buy/#wholesale" },
-        { label: "해외", href: "/where-to-buy/#international" },
       ],
     },
     { label: "FAQ", href: "/faq/" },
