@@ -7,7 +7,6 @@ import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import { cn } from "@/lib/utils";
 import { images } from "@/lib/images";
 import { getDictionary } from "@/lib/i18n";
-import { typo } from "@/lib/typography";
 import type { NavItem } from "@/lib/i18n/types";
 
 const dict = getDictionary();
@@ -56,8 +55,7 @@ function NavLink({ item, onNavigate }: { item: NavItem; onNavigate?: () => void 
   const parentActive = isActive || Boolean(isChildActive);
 
   const linkClass = cn(
-    typo.nav,
-    "flex items-center gap-1 py-2 normal-case transition-colors hover:text-brand-blue lg:py-0",
+    "flex items-center gap-1 py-2 text-sm font-bold uppercase tracking-[1px] transition-colors hover:text-brand-blue lg:px-[15px] lg:py-0",
     parentActive ? "text-brand-blue" : "text-brand-gray"
   );
 
@@ -106,6 +104,7 @@ function NavLink({ item, onNavigate }: { item: NavItem; onNavigate?: () => void 
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -114,17 +113,41 @@ export function Header() {
     };
   }, [menuOpen]);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY >= 1);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex max-w-[1170px] items-center justify-between px-5 py-4">
-        <Link href="/" className="shrink-0" aria-label={dict.site.name}>
+    <header
+      className={cn(
+        "left-0 right-0 top-0 bg-white shadow-[0_0_2px_0_rgba(56,69,84,0.2)] transition-all duration-300",
+        scrolled ? "fixed z-[1000] shrink" : "relative z-[5]"
+      )}
+    >
+      <div
+        className={cn(
+          "mx-auto flex max-w-[1170px] items-center justify-between px-5 transition-[min-height] duration-300",
+          scrolled ? "min-h-[61px]" : "min-h-[91px]"
+        )}
+      >
+        <Link
+          href="/"
+          className={cn(
+            "shrink-0 transition-[padding] duration-300",
+            scrolled ? "py-[5px]" : "py-[15px]"
+          )}
+          aria-label={dict.site.name}
+        >
           <OptimizedImage
             src={images.logo}
             alt={dict.site.name}
             width={164}
             height={48}
             priority
-            className="hidden h-auto w-[164px] md:block"
+            className="hidden h-auto max-h-[31px] w-[164px] md:block"
           />
           <OptimizedImage
             src={images.logoSmall}
@@ -150,7 +173,9 @@ export function Header() {
 
         <nav
           className={cn(
-            "fixed inset-0 top-[73px] z-40 overflow-y-auto bg-white p-6 lg:static lg:inset-auto lg:overflow-visible lg:p-0",
+            scrolled
+              ? "fixed inset-0 top-[61px] z-40 overflow-y-auto bg-white p-6 lg:static lg:inset-auto lg:overflow-visible lg:p-0"
+              : "fixed inset-0 top-[91px] z-40 overflow-y-auto bg-white p-6 lg:static lg:inset-auto lg:overflow-visible lg:p-0",
             menuOpen ? "block" : "hidden lg:block"
           )}
           aria-label="주 메뉴"
@@ -160,7 +185,8 @@ export function Header() {
               <li
                 key={item.label}
                 className={cn(
-                  "lg:px-4",
+                  "transition-[padding] duration-300 lg:px-[3px]",
+                  scrolled ? "lg:py-[18px]" : "lg:py-[31px]",
                   index < dict.nav.length - 1 &&
                     "lg:relative lg:after:absolute lg:after:right-0 lg:after:top-1/2 lg:after:-translate-y-1/2 lg:after:text-brand-gray lg:after:content-['|']"
                 )}

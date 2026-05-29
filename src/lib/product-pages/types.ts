@@ -5,17 +5,6 @@ export type SkuItem = {
   sku: string;
 };
 
-export type SdsLink = {
-  label: string;
-  href: string;
-  color: string;
-};
-
-export type IngredientBlock = {
-  title: string;
-  content: string;
-};
-
 export type ProductItem = {
   name: string;
   nameColor: string;
@@ -23,8 +12,6 @@ export type ProductItem = {
   imageAlign?: "center" | "right";
   skus: SkuItem[];
   bullets: string[];
-  ingredients: IngredientBlock[];
-  sds: SdsLink[];
 };
 
 export type UsageBlock = {
@@ -52,5 +39,4 @@ export type ProductPageData = {
   layout: ProductPageLayout;
   handSideImages?: string[];
   bathingChartHref?: string;
-  buyNowHref?: string;
 };

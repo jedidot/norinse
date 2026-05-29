@@ -22,7 +22,12 @@ export type Dictionary = {
   nav: NavItem[];
   footer: {
     contactTitle: string;
+    companyName: string;
+    businessReg: string;
+    address: string;
+    customerServiceLabel: string;
     phone: string;
+    email: string;
     emailButton: string;
     privacy: string;
     aboutTitle: string;
@@ -54,7 +59,7 @@ export type Dictionary = {
       subtitle: string;
       hair: { title: string; description: string; color: string };
       body: { title: string; description: string; color: string };
-      hand: { title: string; description: string; color: string; amazon?: string };
+      hand: { title: string; description: string; color: string };
     };
     testimonials: {
       title: string;

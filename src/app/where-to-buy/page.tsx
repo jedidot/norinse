@@ -1,7 +1,10 @@
-import { ContentPage, createPageMetadata } from "@/components/pages/ContentPage";
+import {
+  getWhereToBuyMetadata,
+  WhereToBuyPageView,
+} from "@/components/where-to-buy/WhereToBuyPageView";
 
-export const metadata = createPageMetadata("where-to-buy");
+export const metadata = getWhereToBuyMetadata();
 
 export default function WhereToBuyPage() {
-  return <ContentPage pageKey="where-to-buy" />;
+  return <WhereToBuyPageView />;
 }

@@ -2,6 +2,7 @@
 @import "pretendard/dist/web/variable/pretendardvariable.css";
 
 :root {
+  --header-height: 91px;
   --background: #ffffff;
   --foreground: #3c3950;
   --brand-blue: #00629b;
@@ -52,30 +53,96 @@ body {
   font-size: 0.875rem;
 }
 
-/* Hero speech bubble quotes */
-.home-bubble h2::before {
-  content: "\201C";
-  display: inline;
-  position: relative;
-  font-size: clamp(2rem, 5vw, 4rem);
-  top: 1.5rem;
-  line-height: 0;
-  font-weight: 400;
-  color: #fff;
+/* Hero — 원본 fullHeightRow + .home-slide-row (min 695px, 90vh, 상·하 1fr 여백) */
+.hero-viewport {
+  min-height: calc(100vh - var(--header-height));
 }
 
-.home-bubble h2::after {
+.hero-slide-frame {
+  display: grid;
+  height: calc(100vh - var(--header-height));
+  min-height: calc(100vh - var(--header-height));
+  grid-template-rows: 1fr minmax(695px, 90vh) 1fr;
+  width: 100%;
+  overflow: visible;
+}
+
+/* 말풍선(구 형태) — 원본 35vw보다 살짝 축소, 컬럼 전체 높이 채우지 않음 */
+.hero-bubble-wrap {
+  position: relative;
+  left: 25px;
+  top: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: min(64vw, 700px);
+  min-height: min(36vw, 500px);
+  max-height: min(42vw, 580px);
+  margin-inline: auto;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 1번 슬라이드: 이미지 오른쪽에 살짝 걸치고, 말풍선 전체는 우측으로 (음수 margin-left 사용 안 함) */
+.hero-bubble-wrap--first {
+  left: 25px;
+  margin-left: 0;
+  margin-right: 0vw;
+  transform: translateX(10vw);
+  max-width: min(68vw, 760px);
+  min-height: min(38vw, 540px);
+  max-height: min(44vw, 620px);
+}
+
+.home-bubble {
+  max-width: 58%;
+  margin-inline: auto;
+  text-align: center;
+}
+
+@media (min-width: 1200px) {
+  .home-bubble {
+    font-size: 3.25rem;
+    line-height: 1.2;
+  }
+}
+
+/* 슬라이드 배경 — 풀 블리드보다 약간 작게 */
+.hero-slide-panel--contain {
+  background-size: 78% auto !important;
+  overflow: visible;
+}
+
+.hero-slide-panel--cover {
+  background-size: 88% !important;
+}
+
+/* Testimonial quote marks — 여는 따옴표는 첫 줄 왼쪽에 고정 */
+.testimonial-slide .quote-mark {
+  position: relative;
+}
+
+.testimonial-slide .quote-mark::before {
+  content: "\201C";
+  position: absolute;
+  left: -2rem;
+  top: 0;
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.testimonial-slide .quote-mark::after {
   content: "\201D";
   display: inline;
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: 4rem;
   position: relative;
-  top: 1.25rem;
+  top: 0.75rem;
+  left: 0.5rem;
   line-height: 0;
-  font-weight: 400;
-  color: #fff;
 }
 
-/* Testimonial quote marks */
 .quote-mark::before {
   content: "\201C";
   display: inline;
@@ -115,9 +182,61 @@ body {
   color: var(--brand-green);
 }
 
-/* WTB card divider */
+/* 문의하기 — 메디캠프 로고 상·하 여백 제거 */
+.contact-medicamp-logo {
+  line-height: 0;
+  font-size: 0;
+}
+
+.contact-medicamp-logo img {
+  display: block;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+}
+
+/* 구매처 카드 — 원본 .where-to-buy-copy (홈·/where-to-buy/) */
+.where-to-buy-copy .wtb-card-title-link {
+  color: var(--brand-blue);
+  text-decoration: none;
+}
+
+.where-to-buy-copy .wtb-card-title-link:hover {
+  text-decoration: none;
+}
+
+.where-to-buy-copy .wtb-card-title {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 25px;
+  text-transform: uppercase;
+  color: var(--brand-blue);
+}
+
+.where-to-buy-copy .wtb-card-subtitle {
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 25px;
+  color: var(--brand-blue);
+}
+
+.where-to-buy-copy .wtb-card-action {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 25px;
+  color: var(--brand-blue);
+  text-decoration: none;
+}
+
+.where-to-buy-copy .wtb-card-action:hover {
+  text-decoration: underline;
+}
+
 .wtb-divider {
-  margin: 1rem auto;
+  margin: 10px auto;
+  border: 0;
   border-top: 6px solid white;
   width: 33%;
 }

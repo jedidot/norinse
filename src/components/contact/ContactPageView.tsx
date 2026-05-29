@@ -16,38 +16,35 @@ export function ContactPageView() {
 
       <section className="py-12 md:py-16">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-12">
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-8">
-              <div className="mb-8 space-y-3 text-base leading-relaxed">
-                <p>
-                  <strong className="font-semibold text-[#0000ff]">
-                    {contactPageMeta.disclaimerIntro}
-                  </strong>
-                </p>
-                {contactPageMeta.disclaimerWarnings.map((warning) => (
-                  <p key={warning}>
-                    <strong className="font-semibold text-[#ff0000]">{warning}</strong>
-                  </p>
-                ))}
-              </div>
-
               <ContactForm />
             </div>
 
             <aside className="lg:col-span-4">
-              <div className="mx-auto max-w-[320px] text-center lg:mx-0">
+              <div className="flex flex-col items-center text-center lg:translate-x-14 lg:pt-[81px]">
                 <OptimizedImage
-                  src={images.products.footerBadge}
-                  alt="노린스 No-Rinse"
-                  width={598}
-                  height={714}
-                  className="mx-auto"
+                  src={images.medicampLogo}
+                  alt="메디캠프 MEDICAMP"
+                  width={477}
+                  height={106}
+                  sizes="(min-width: 1024px) 30vw, 90vw"
+                  wrapperClassName="contact-medicamp-logo m-0 block w-full max-w-full origin-top p-0 leading-[0] lg:scale-[1.25]"
+                  className="!m-0 mx-auto block h-auto w-full max-w-none"
                 />
-                <div className="mt-6 space-y-3 text-base leading-relaxed text-brand-gray">
+                <div className="mt-12 space-y-2 text-base leading-relaxed text-brand-gray">
                   {contactPageMeta.addressLines.map((line) => (
                     <p key={line}>{line}</p>
                   ))}
-                  <p>전화: {contactPageMeta.phones}</p>
+                  <p>
+                    전화:{" "}
+                    <a
+                      href={`tel:${contactPageMeta.phone.replace(/-/g, "")}`}
+                      className="hover:text-brand-blue hover:underline"
+                    >
+                      {contactPageMeta.phone}
+                    </a>
+                  </p>
                 </div>
               </div>
             </aside>

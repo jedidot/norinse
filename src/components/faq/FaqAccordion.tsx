@@ -59,7 +59,7 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
             </h4>
             {open && (
               <div className="pb-5 pl-[30px]">
-                <p className={typo.faqAnswer}>
+                <p className={cn(typo.faqAnswer, "whitespace-pre-line")}>
                   {item.answer}
                 </p>
               </div>

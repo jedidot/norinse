@@ -8,6 +8,7 @@ export const images = {
   logo: img("thegem/logos/logo_c46fc3b9eca1be6c59743332ef25cb1d_1x.png"),
   logoSmall: img("thegem/logos/logo_7012343275b77a54854f1eab01cb3e30_1x.png"),
   favicon: img("CL_WebImages_CL.png"),
+  medicampLogo: img("medicamp-logo.png"),
   hero: {
     handFoam: img("2021/02/HandFoamImages2_72-01.png"),
     handFoamMobile: img("2021/02/HandFoamImages2_72-07.png"),

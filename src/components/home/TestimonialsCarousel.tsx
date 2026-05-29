@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { cn } from "@/lib/utils";
 import { images } from "@/lib/images";
@@ -38,34 +37,34 @@ export function TestimonialsCarousel() {
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="hidden bg-brand-sky py-10 md:block md:py-16">
-      <Container>
-        <SectionHeading align="center" light className="mb-10">
+    <section className="hidden bg-brand-sky md:block">
+      <div className="testimonials-title-bar flex items-center justify-center px-4 py-8 md:py-10">
+        <SectionHeading align="center" light className="mb-0 text-3xl md:text-4xl">
           {dict.home.testimonials.title}
         </SectionHeading>
-      </Container>
+      </div>
 
       <div className="relative overflow-hidden" ref={emblaRef}>
         <div className="flex">
           {dict.home.testimonials.items.map((item, index) => (
             <div key={index} className="min-w-0 flex-[0_0_100%]">
               <div
-                className="grid min-h-[60vh] items-center bg-cover bg-[50%_25%] md:grid-cols-2"
+                className="testimonial-slide grid min-h-[85vh] items-stretch bg-cover bg-[50%_25%] bg-no-repeat md:grid-cols-2"
                 style={{
                   backgroundImage: `url(${testimonialImages[item.image]})`,
                 }}
               >
                 <div
                   className={cn(
-                    "p-6 md:col-span-1 md:p-10 md:col-start-1",
+                    "flex items-center md:col-span-1 md:col-start-1",
                     item.imagePosition === "left"
-                      ? "lg:pr-20"
-                      : "md:col-start-2 lg:pl-20"
+                      ? "py-10 pl-10 pr-6 md:py-10 md:pl-16 md:pr-10 lg:pl-20 lg:pr-14 xl:pl-24"
+                      : "md:col-start-2 py-10 pl-6 pr-10 md:py-10 md:pl-10 md:pr-16 lg:pl-14 lg:pr-20 xl:pr-24"
                   )}
                 >
                   <p
                     className={cn(
-                      "quote-mark text-lg leading-relaxed text-brand-blue md:text-xl md:leading-[1.75]",
+                      "quote-mark max-w-none text-2xl leading-[2] text-brand-blue md:text-[1.875rem] lg:text-[2rem]",
                       quoteClassMap[item.quoteColor]
                     )}
                   >

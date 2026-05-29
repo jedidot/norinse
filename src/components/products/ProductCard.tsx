@@ -1,5 +1,4 @@
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
-import { IngredientsAccordion } from "@/components/products/IngredientsAccordion";
 import type { ProductItem } from "@/lib/product-pages/types";
 
 type ProductCardProps = {
@@ -44,11 +43,6 @@ export function ProductCard({ product }: ProductCardProps) {
           </li>
         ))}
       </ul>
-
-      <IngredientsAccordion
-        ingredients={product.ingredients}
-        sds={product.sds}
-      />
     </article>
   );
 }

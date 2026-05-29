@@ -5,13 +5,8 @@ export const contactPageMeta = {
       "노린스 No-Rinse® 제품, 구매, 도매 문의는 문의하기 양식을 통해 연락해 주세요.",
   },
   heroTitle: "문의하기",
-  disclaimerIntro: "양식 작성 전 아래 안내를 반드시 읽어 주세요:",
-  disclaimerWarnings: [
-    "Amazon, Walmart, eBay 등 이커머스 플랫폼에서 당사 제품을 판매하려는 문의에는 응답하지 않습니다.",
-    "오프라인 매장을 보유하고 계시다면, 매장 사진·주소 및 제품을 판매할 구역에 대한 정보를 요청드립니다. 오프라인 매장 또는 귀사 웹사이트를 통해 판매하는 경우, 이커머스 플랫폼에서 판매하지 않겠다는 내용의 법적 서류에 서명해야 합니다.",
-  ],
-  addressLines: ["868 Pleasant Valley Drive", "Springboro, OH 45066"],
-  phones: "937-746-7357 / 800-223-9348",
+  addressLines: ["서울시 영등포구 당산로 153-1"],
+  phone: "02-3667-7017",
 };
 
 export const contactCountries = [

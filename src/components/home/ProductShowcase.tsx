@@ -66,18 +66,6 @@ export function ProductShowcase() {
                 <p className={cn(typo.bodyBlue, "mb-5")}>
                   {item.description}
                 </p>
-                {"amazon" in item && item.amazon && (
-                  <p className={cn(typo.bodyBlue, "mb-5")}>
-                    <a
-                      href="https://www.amazon.com/s?k=No+Rinse"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline hover:no-underline"
-                    >
-                      {item.amazon}
-                    </a>
-                  </p>
-                )}
                 <div className="flex flex-wrap gap-3">
                   <Button href={item.href} color={item.color}>
                     {dict.common.moreInfo}

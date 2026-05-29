@@ -45,39 +45,33 @@ export function Footer() {
             <h5 className="mb-4 text-left text-sm font-semibold text-brand-gray">
               {dict.footer.contactTitle}
             </h5>
-            <p className="mb-4 text-brand-gray">{dict.footer.phone}</p>
-            <Button href="/contact-us/" variant="outline">
+            <div className="space-y-2 text-sm leading-relaxed text-brand-gray">
+              <p className="whitespace-pre-line font-semibold text-brand-blue">
+                {dict.footer.companyName}
+              </p>
+              <p className="whitespace-pre-line">{dict.footer.businessReg}</p>
+              <p className="whitespace-pre-line">{dict.footer.address}</p>
+              <p>
+                {dict.footer.customerServiceLabel}:{" "}
+                <a
+                  href={`tel:${dict.footer.phone.replace(/-/g, "")}`}
+                  className="hover:text-brand-blue hover:underline"
+                >
+                  {dict.footer.phone}
+                </a>
+              </p>
+              <p>
+                <a
+                  href={`mailto:${dict.footer.email}`}
+                  className="hover:text-brand-blue hover:underline"
+                >
+                  {dict.footer.email}
+                </a>
+              </p>
+            </div>
+            <Button href="/contact-us/" variant="outline" className="mt-4">
               {dict.footer.emailButton}
             </Button>
-            <div className="mt-4 flex gap-3">
-              <a
-                href="https://www.facebook.com/Cleanlife-Products-LLC-417058515043881/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#99a9b5] hover:opacity-80"
-                aria-label="Facebook"
-              >
-                f
-              </a>
-              <a
-                href="https://www.youtube.com/channel/UChVjst74vWHhxDnbCRt4cPQ"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#99a9b5] hover:opacity-80"
-                aria-label="YouTube"
-              >
-                ▶
-              </a>
-              <a
-                href="https://www.linkedin.com/company/cleanlife-products-inc/about/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#99a9b5] hover:opacity-80"
-                aria-label="LinkedIn"
-              >
-                in
-              </a>
-            </div>
             <p className="mt-5">
               <Link
                 href="/privacy-policy/"

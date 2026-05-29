@@ -58,7 +58,7 @@ function UsageSection({ data }: { data: ProductPageData }) {
                 <div key={block.title} className={cn(typo.bodyBlue, "mb-5")}>
                   <strong className="font-medium">{block.title}</strong>
                   <br />
-                  {block.content}
+                  <span className="whitespace-pre-line">{block.content}</span>
                 </div>
               ))}
               {data.handSideImages && (
@@ -78,18 +78,6 @@ function UsageSection({ data }: { data: ProductPageData }) {
             </div>
             <div>
               <ProductCard product={product} />
-              {data.buyNowHref && (
-                <div className="mt-6 text-center">
-                  <a
-                    href={data.buyNowHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex h-[30px] items-center rounded-sm bg-brand-blue px-8 text-base text-white hover:bg-white hover:text-brand-blue"
-                  >
-                    지금 구매
-                  </a>
-                </div>
-              )}
             </div>
           </div>
         </Container>
@@ -113,14 +101,14 @@ function UsageSection({ data }: { data: ProductPageData }) {
             <p key={block.title} className={typo.bodyBlue}>
               <strong className="font-medium">{block.title}</strong>
               <br />
-              {block.content}
+              <span className="whitespace-pre-line">{block.content}</span>
             </p>
           ))}
         </div>
         {data.bathingChartHref && (
           <div className="mt-10">
             <h6 className="mb-4 text-brand-blue">
-              침상 목욕 시 참고용 목욕 순서 차트(PDF) 다운로드:
+            목욕타월 사용 시 참고할 수 있도록 목욕 순서를 다운로드하세요. (PDF)
             </h6>
             <a
               href={data.bathingChartHref}
@@ -128,7 +116,7 @@ function UsageSection({ data }: { data: ProductPageData }) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 border-2 border-brand-blue px-4 py-2 text-brand-blue transition-colors hover:bg-brand-blue hover:text-white"
             >
-              목욕 순서 차트 ↓
+              목욕 순서 ↓
             </a>
           </div>
         )}
