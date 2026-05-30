@@ -85,22 +85,29 @@ function HeroSlidePanel({
   slideIndex: number;
   className?: string;
 }) {
+  const isCover = item.bgSize === "cover";
+
   return (
     <div
       className={cn(
-        "hero-slide-panel row-start-2 grid h-full min-h-[695px] grid-cols-1 items-center overflow-visible bg-white bg-no-repeat min-[992px]:grid-cols-2",
-        item.bgSize === "contain"
-          ? "hero-slide-panel--contain"
-          : "hero-slide-panel--cover",
+        "hero-slide-panel relative row-start-2 h-full min-h-[695px] w-full bg-white",
         className
       )}
-      style={{
-        backgroundImage: `url(${item.bg})`,
-        backgroundPosition: item.bgPosition,
-      }}
     >
-      <div className="hidden min-h-full min-[992px]:block" aria-hidden />
-      <HeroBubble slideIndex={slideIndex} />
+      {/* 배경 — 그리드 밖 absolute 레이어 (2~5: cover 풀너비, 1: contain) */}
+      <img
+        src={item.bg}
+        alt=""
+        className={cn(
+          "pointer-events-none absolute inset-0 z-0 h-full w-full",
+          isCover ? "object-cover object-center" : "object-contain object-top"
+        )}
+        loading={slideIndex === 0 ? "eager" : "lazy"}
+      />
+      <div className="relative z-10 grid h-full min-h-[695px] w-full grid-cols-1 items-center min-[992px]:grid-cols-2">
+        <div className="hidden min-h-full min-[992px]:block" aria-hidden />
+        <HeroBubble slideIndex={slideIndex} />
+      </div>
     </div>
   );
 }
@@ -131,8 +138,8 @@ export function HeroCarousel() {
       <div className="hero-viewport relative hidden min-[992px]:block" ref={emblaRef}>
         <div className="flex h-[calc(100vh-var(--header-height))]">
           {desktopSlides.map((item, index) => (
-            <div key={item.key} className="relative min-w-0 flex-[0_0_100%]">
-              <div className="hero-slide-frame">
+            <div key={item.key} className="relative min-w-0 flex-[0_0_100%] basis-full">
+              <div className="hero-slide-frame w-full">
                 <div aria-hidden />
                 <HeroSlidePanel item={item} slideIndex={index} />
                 <div aria-hidden />

@@ -108,7 +108,7 @@ function UsageSection({ data }: { data: ProductPageData }) {
         {data.bathingChartHref && (
           <div className="mt-10">
             <h6 className="mb-4 text-brand-blue">
-            목욕타월 사용 시 참고할 수 있도록 목욕 순서를 다운로드하세요. (PDF)
+              목욕타월 사용 시 참고할 수 있도록 목욕 순서를 다운로드하세요. (PDF)
             </h6>
             <a
               href={data.bathingChartHref}

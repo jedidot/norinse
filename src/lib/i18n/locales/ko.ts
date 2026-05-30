@@ -24,7 +24,7 @@ const ko: Dictionary = {
       href: "/where-to-buy/",
       children: [
         { label: "지역별 매장", href: "/where-to-buy/#by-location" },
-        { label: "온라인/전화", href: "/where-to-buy/#retailers" },
+        { label: "온라인&편의점", href: "/where-to-buy/#retailers" },
         { label: "도매", href: "/where-to-buy/#wholesale" },
       ],
     },
@@ -34,17 +34,16 @@ const ko: Dictionary = {
   footer: {
     contactTitle: "문의하기",
     companyName: "메디캠프",
-    businessReg: "사업자등록번호: 642-45-00130",
     address: "주소: 서울시 영등포구 당산로 153-1",
     customerServiceLabel: "고객센터",
     phone: "02-3667-7017",
+    fax: "02-3667-6017",
     email: "medicamp@medicamp.kr",
     emailButton: "이메일 문의",
     privacy: "개인정보처리방침",
-    aboutTitle: "노린스 소개",
+    aboutTitle: "메디캠프 소개",
     whereToBuyTitle: "구매처",
-    copyright: "© 2026 노린스. All rights reserved.",
-    peta: "PETA 인증",
+    copyright: "© 2026 메디캠프. All rights reserved.",
   },
   common: {
     skipToContent: "본문으로 바로가기",
@@ -167,7 +166,7 @@ const ko: Dictionary = {
           icon: "location",
         },
         {
-          title: "온라인 & 편의점",
+          title: "온라인&편의점",
           subtitle: "온라인 스토어",
           linkText: "온라인·편의점 →",
           href: "/where-to-buy/#retailers",
@@ -287,7 +286,7 @@ const ko: Dictionary = {
           content: "전국 대학·종합병원, 요양병원 내외 의료용품 전문점과 약국에서 노린스 제품을 만나 보실 수 있습니다. 가까운 매장은 고객센터로 문의해 주세요.",
         },
         {
-          heading: "온라인 & 전화",
+          heading: "온라인 & 편의점",
           content: "의료·전문 리테일러를 통해 주요 온라인몰에서 주문이 가능합니다. 전국 대학·종합병원내외 편의점에서도 노린스 제품을 만나 보실 수 있습니다.",
         },
         {
@@ -337,20 +336,6 @@ const ko: Dictionary = {
         description: "노린스 개인정보 수집·이용·보호에 관한 방침.",
       },
       title: "개인정보처리방침",
-      sections: [
-        {
-          content:
-            "노린스(이하 '회사')는 이용자의 개인정보를 중요시하며, 관련 법령을 준수합니다. 수집하는 개인정보 항목, 이용 목적, 보유 기간, 제3자 제공 등에 대한 상세 내용은 본 방침에 따릅니다.",
-        },
-        {
-          heading: "수집 항목",
-          content: "문의 시: 이름, 이메일, 연락처, 문의 내용.",
-        },
-        {
-          heading: "이용 목적",
-          content: "고객 문의 응대, 서비스 개선, 법적 의무 이행.",
-        },
-      ],
     },
   },
 };

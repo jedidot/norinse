@@ -23,7 +23,7 @@ export function ContentPage({ pageKey, heroClassName }: PageProps) {
   const page = dict.pages[pageKey];
 
   const sectionIds: Record<string, string[]> = {
-    "where-to-buy": ["by-location", "retailers", "wholesale", "international"],
+    "where-to-buy": ["by-location", "retailers", "wholesale"],
   };
 
   return (

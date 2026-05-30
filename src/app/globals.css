@@ -109,16 +109,6 @@ body {
   }
 }
 
-/* 슬라이드 배경 — 풀 블리드보다 약간 작게 */
-.hero-slide-panel--contain {
-  background-size: 78% auto !important;
-  overflow: visible;
-}
-
-.hero-slide-panel--cover {
-  background-size: 88% !important;
-}
-
 /* Testimonial quote marks — 여는 따옴표는 첫 줄 왼쪽에 고정 */
 .testimonial-slide .quote-mark {
   position: relative;

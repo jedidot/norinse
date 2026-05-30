@@ -18,10 +18,12 @@ const footerAboutLinks = [
 
 const footerBuyLinks = [
   { label: "지역별 매장", href: "/where-to-buy/#by-location" },
-  { label: "온라인/전화", href: "/where-to-buy/#retailers" },
+  { label: "온라인&편의점", href: "/where-to-buy/#retailers" },
   { label: "도매", href: "/where-to-buy/#wholesale" },
-  { label: "해외", href: "/where-to-buy/#international" },
 ];
+
+const footerColumnTitleClass =
+  "mb-4 text-left text-base font-semibold text-brand-gray md:text-lg";
 
 export function Footer() {
   return (
@@ -42,14 +44,11 @@ export function Footer() {
           </div>
 
           <div>
-            <h5 className="mb-4 text-left text-sm font-semibold text-brand-gray">
-              {dict.footer.contactTitle}
-            </h5>
+            <h5 className={footerColumnTitleClass}>{dict.footer.contactTitle}</h5>
             <div className="space-y-2 text-sm leading-relaxed text-brand-gray">
               <p className="whitespace-pre-line font-semibold text-brand-blue">
                 {dict.footer.companyName}
               </p>
-              <p className="whitespace-pre-line">{dict.footer.businessReg}</p>
               <p className="whitespace-pre-line">{dict.footer.address}</p>
               <p>
                 {dict.footer.customerServiceLabel}:{" "}
@@ -60,6 +59,7 @@ export function Footer() {
                   {dict.footer.phone}
                 </a>
               </p>
+              <p>팩스: {dict.footer.fax}</p>
               <p>
                 <a
                   href={`mailto:${dict.footer.email}`}
@@ -80,20 +80,10 @@ export function Footer() {
                 {dict.footer.privacy}
               </Link>
             </p>
-            <p className="mt-4">
-              <a
-                href="https://crueltyfree.peta.org/company/cleanlife-products-no-rinse-laboratories/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-base font-semibold text-[#2274C7]"
-              >
-                {dict.footer.peta}
-              </a>
-            </p>
           </div>
 
           <div>
-            <h5 className="mb-4 text-sm font-semibold text-brand-gray">{dict.footer.aboutTitle}</h5>
+            <h5 className={footerColumnTitleClass}>{dict.footer.aboutTitle}</h5>
             <ul className="space-y-2">
               {footerAboutLinks.map((link) => (
                 <li key={link.href}>
@@ -109,9 +99,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h5 className="mb-4 text-sm font-semibold text-brand-gray">
-              {dict.footer.whereToBuyTitle}
-            </h5>
+            <h5 className={footerColumnTitleClass}>{dict.footer.whereToBuyTitle}</h5>
             <ul className="space-y-2">
               {footerBuyLinks.map((link) => (
                 <li key={link.href}>

@@ -23,17 +23,16 @@ export type Dictionary = {
   footer: {
     contactTitle: string;
     companyName: string;
-    businessReg: string;
     address: string;
     customerServiceLabel: string;
     phone: string;
+    fax: string;
     email: string;
     emailButton: string;
     privacy: string;
     aboutTitle: string;
     whereToBuyTitle: string;
     copyright: string;
-    peta: string;
   };
   common: {
     skipToContent: string;

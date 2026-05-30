@@ -1,7 +1,16 @@
-import { ContentPage, createPageMetadata } from "@/components/pages/ContentPage";
+import {
+  getPrivacyMetadata,
+  PrivacyPolicyPageView,
+} from "@/components/privacy/PrivacyPolicyPageView";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata = createPageMetadata("privacy-policy");
+export const dynamic = "force-static";
+
+export const metadata = buildMetadata({
+  pageSeo: getPrivacyMetadata(),
+  path: "/privacy-policy/",
+});
 
 export default function PrivacyPolicyPage() {
-  return <ContentPage pageKey="privacy-policy" />;
+  return <PrivacyPolicyPageView />;
 }

@@ -117,8 +117,7 @@ export const productPages: Record<ProductPageData["key"], ProductPageData> = {
       },
     ],
     layout: "body",
-    bathingChartHref:
-      "https://cleanlifeproducts.com/wp-content/uploads/CL_BatingChart.pdf",
+    bathingChartHref: "/docs/BathingSequenceChart_ko.pdf",
     products: [
       {
         name: "바디워시",

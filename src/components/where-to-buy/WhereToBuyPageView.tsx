@@ -1,6 +1,5 @@
 import { Container } from "@/components/ui/Container";
 import { OnlineMarketplaceLogos } from "@/components/where-to-buy/OnlineMarketplaceLogos";
-import { buildMetadata } from "@/lib/seo";
 import { getDictionary } from "@/lib/i18n";
 import { typo } from "@/lib/typography";
 import { cn } from "@/lib/utils";
@@ -37,8 +36,5 @@ export function WhereToBuyPageView() {
 }
 
 export function getWhereToBuyMetadata() {
-  return buildMetadata({
-    pageSeo: page.seo,
-    path: "/where-to-buy/",
-  });
+  return page.seo;
 }
